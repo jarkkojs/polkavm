@@ -346,6 +346,10 @@ impl AddressRange {
     pub(crate) fn is_empty(&self) -> bool {
         self.end == self.start
     }
+
+    pub(crate) const fn is_overlapping(&self, other: &AddressRange) -> bool {
+        !(self.end <= other.start || self.start >= other.end)
+    }
 }
 
 impl core::fmt::Display for AddressRange {
