@@ -114,6 +114,10 @@ function build_benchmark() {
     fi
 }
 
-build_benchmark "bench-minimal"
-build_benchmark "bench-pinky"
-build_benchmark "bench-prime-sieve"
+if [[ $# -ge 1 ]]; then
+    build_benchmark "bench-$1"
+else
+    build_benchmark "bench-minimal"
+    build_benchmark "bench-pinky"
+    build_benchmark "bench-prime-sieve"
+fi
